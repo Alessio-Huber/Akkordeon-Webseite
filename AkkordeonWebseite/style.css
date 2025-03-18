@@ -1,0 +1,408 @@
+:root {
+--color-1: #ff0000;
+}
+
+body {
+line-height: 1.5;
+font-family: sans-serif;
+background-color: #f2f2f2;
+margin: 0;
+padding: 0;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+a {
+display: inline-block;
+margin-top: 10px;
+padding: 10px 20px;
+color: grey;
+text-decoration: none;
+border-radius: 5px;
+}
+
+ul {
+list-style: none;
+}
+
+.container {
+max-width: 1170px;
+margin: auto;
+}
+
+.row {
+display: flex;
+flex-wrap: wrap;
+}
+
+.align-items-center {
+align-items: center;
+}
+
+.justify-content-between {
+justify-content: space-between;
+}
+
+/* Header */
+.header {
+background-color: var(--color-1);
+padding: 12px 0;
+position: sticky;
+top: 0;
+}
+
+.header .logo,
+.header .nav {
+padding: 0 15px;
+}
+
+.header .logo a {
+font-size: 30px;
+color: #ffffff;
+text-transform: capitalize;
+}
+
+.header .nav ul li {
+display: inline-block;
+margin-left: 40px;
+}
+
+.header .nav ul li a {
+display: block;
+font-size: 16px;
+padding: 10px 0;
+color: rgba(255, 255, 255, 0.7);
+text-transform: capitalize;
+transition: all 0.5s ease;
+}
+
+.header .nav ul li a
+,
+.header .nav ul li a.active {
+color: #ffffff;
+}
+
+.header #nav-check {
+position: absolute;
+opacity: 0;
+pointer-events: none;
+}
+
+.nav-toggler {
+height: 34px;
+width: 44px;
+background-color: #ffffff;
+border-radius: 4px;
+cursor: pointer;
+display: none;
+align-items: center;
+justify-content: center;
+margin-right: 15px;
+}
+
+.nav-toggler span {
+display: block;
+height: 2px;
+width: 20px;
+background-color: var(--color-1);
+position: relative;
+transition: background-color 0.3s ease;
+}
+
+.nav-toggler span::before,
+.nav-toggler span::after {
+content: '';
+position: absolute;
+width: 100%;
+height: 100%;
+background-color: var(--color-1);
+left: 0;
+}
+
+.nav-toggler span::before {
+top: -6px;
+}
+
+.nav-toggler span::after {
+top: 6px;
+}
+
+main {
+display: flex;
+flex-direction: column;
+}
+
+.home {
+text-align: center;
+padding: 50px 20px;
+position: relative;
+}
+
+.home h1 {
+font-size: 36px;
+font-weight: bold;
+}
+
+.background-image {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -10%);
+width: 50%;
+height: auto;
+background-size: cover;
+opacity: 0.5;
+z-index: -1;
+}
+
+.block {
+display: none;
+padding: 0px;
+text-align: center;
+}
+
+.block.large .content {
+max-width: 100%;
+}
+
+.content {
+max-width: 600px;
+margin: 0 auto;
+padding: 20px;
+height: 400px;
+}
+
+.content.gray {
+background-color: rgb(212, 212, 212);
+}
+
+.content.white {
+background-color: white;
+}
+
+#home img {
+max-width: 88%;
+height: auto;
+}
+
+#kontakt {
+text-align: center;
+}
+
+#kontakt .content {
+    width: 100%; 
+    padding: 0; 
+    margin: 0; 
+}
+
+#kontakt img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    max-height: 75vh;
+}
+
+#akkordeonmodelle img {
+height: 50%;
+}
+
+#akkordeonmarken img {
+height: 50%;
+}
+
+#aufbau img {
+height: 50%;
+}
+
+.intro {
+display: flex;
+align-items: flex-start;
+margin-bottom: 20px;
+}
+
+.intro img {
+margin-right: 20px;
+max-width: 300px;
+height: auto;
+}
+
+.intro-text {
+max-width: 600px;
+}
+
+.welcome-message {
+    position: relative;
+    z-index: 1; 
+}
+
+.disclaimer-link {
+    display: block;
+    text-align: center;
+    background-color: var(--color-1);
+    color: white; 
+    text-decoration: none; 
+    font-size: 16px; 
+}
+
+.disclaimer-link:hover {
+    background-color: var(--color-2);
+}
+
+@media (max-width: 1200px) {
+    .nav-toggler {
+        display: flex;
+    }
+
+    .header .nav {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background-color: var(--color-1);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 10;
+    }
+
+    .header .nav ul li {
+        display: block;
+        margin: 0;
+    }
+
+    .header #nav-check:checked ~ .nav {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .header #nav-check:focus ~ .nav-toggler {
+        box-shadow: 0 0 15px #000000;
+    }
+
+    .header #nav-check:checked ~ .nav-toggler span {
+        background-color: transparent;
+    }
+
+    .header #nav-check:checked ~ .nav-toggler span::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    .header #nav-check:checked ~ .nav-toggler span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+
+    .home h1 {
+        font-size: 12px;
+        z-index: 1;
+    }
+
+    .header #nav-check:checked ~ .home h1 {
+        display: none;
+    }
+
+    .content {
+        max-width: 800px;
+        height: 600px; 
+    }
+}
+/* Anpassung für Bildschirme bis 992px */
+@media (max-width: 992px) {
+    .header .nav ul li {
+        margin-left: 20px; /* Verringerung des Abstands zwischen den Menüpunkten */
+    }
+
+    .home h1 {
+        font-size: 24px; /* Anpassung der Schriftgröße */
+    }
+
+    .content {
+        max-width: 90%; /* Verkleinerung der maximalen Breite */
+        padding: 10px;
+    }
+}
+
+/* Anpassung für Bildschirme bis 768px */
+@media (max-width: 768px) {
+    .home h1 {
+        font-size: 18px; /* Weitere Verkleinerung der Schriftgröße */
+    }
+
+    .content {
+        max-width: 100%; /* Vollständige Breite nutzen */
+        height: auto; /* Automatische Höhe */
+        padding: 5px; /* Reduzierte Polsterung */
+    }
+
+    .header .nav ul li {
+        margin-left: 10px; /* Noch weniger Abstand zwischen den Menüpunkten */
+    }
+
+    .intro img {
+        max-width: 200px; /* Anpassung der Bildgröße in der Einleitung */
+    }
+}
+
+/* Anpassung für sehr kleine Bildschirme bis 480px */
+@media (max-width: 480px) {
+    .nav-toggler {
+        display: flex;
+    }
+
+    .header .nav {
+        top: 100%;
+        background-color: var(--color-1);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 10;
+        transition: opacity 0.3s ease; /* Sanfte Übergänge */
+    }
+
+    .header #nav-check:checked ~ .nav {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .home h1 {
+        font-size: 14px; /* Kleinere Schriftgröße */
+    }
+
+    .content {
+        max-width: 100%;
+        padding: 5px;
+    }
+
+    #akkordeonmodelle img,
+    #akkordeonmarken img,
+    #aufbau img {
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+/* Anpassung für sehr kleine Bildschirme bis 480px */
+@media (max-width: 480px) {
+    #kontakt .content {
+        padding: 0 10px; /* Etwas Polsterung für kleine Bildschirme hinzufügen */
+    }
+}
+
+/* Anpassung für extrem kleine Bildschirme bis 250px */
+@media (max-width: 250px) {
+    .content {
+        height: auto; 
+        padding: 5px;
+    }
+
+    #akkordeonmodelle img,
+    #akkordeonmarken img,
+    #aufbau img {
+        height: auto;
+        max-width: 100%;
+    }
+}

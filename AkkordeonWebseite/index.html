@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Akkordeonwebseite</title>
+    <link rel="icon" type="image/png" href="music.png">
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let docTitle = document.title;
+
+        window.addEventListener("blur", () => {
+            document.title = "Come back 😡";
+        });
+
+        window.addEventListener("focus", () => {
+            document.title = docTitle;
+        });
+
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function showSection(id) {
+            sections.forEach(section => {
+                section.style.display = section.id === id ? 'block' : 'none';
+                if (section.id === id) {
+                    section.scrollIntoView(true);
+                    window.scrollBy(0, -100);
+                }
+            });
+        }
+
+        function updateActiveLink(targetId) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === targetId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                showSection(targetId);
+                updateActiveLink(targetId);
+            });
+        });
+
+        document.querySelector('.logo a').addEventListener('click', function(event) {
+            event.preventDefault();
+            showSection('home');
+            updateActiveLink('home');
+        });
+
+        showSection('home');
+        updateActiveLink('home');
+    });
+</script>
+</head>
+<a href="https://disclaimer.bbzwinf.ch/" class="disclaimer-link" target="_blank">Disclaimer</a>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="logo">
+                    <a href="#home">Akkordeon</a>
+                </div>
+                <input type="checkbox" id="nav-check">
+                <label for="nav-check" class="nav-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#home" class="nav-link active">home</a></li>
+                        <li><a href="#akkordeonmodelle" class="nav-link">Akkordeonmodelle</a></li>
+                        <li><a href="#akkordeonmarken" class="nav-link">Akkordeonmarken</a></li>
+                        <li><a href="#aufbau" class="nav-link">Aufbau</a></li>
+                        <li><a href="#traditionsmusik" class="nav-link">Schweizer Traditionsmusik</a></li>
+                        <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+<main>
+    <section id="home" class="home">
+              <h1>Willkommen auf der Akkordeonwebseite</h1>
+        <div class="background-image"><img src="accordeonbild.png" alt="Bild 1"></div>
+    </section>
+
+    <section id="akkordeonmodelle" class="block large">
+        <div class="content gray">
+            <h2>Tastenakkordeon</h2>
+            <img src="Tastenakkordeon.jpg" alt="Tastenakkordeon">
+        </div>
+        <div class="content white">
+            <h2>Piccolo (kleines Knopfakkordeon)</h2>
+            <img src="Piccolo.jpg" alt="Piccolo (kleines Knopfakkordeon)">
+        </div>
+        <div class="content gray">
+            <h2>Knopfakkordeon</h2>
+            <img src="knopfakkordeon.jpg" alt="Knopfakkordeon">
+        </div>
+    </section>
+
+    <section id="akkordeonmarken" class="block large">
+        <div class="content gray">
+            <h2>Cantonelli</h2>
+            <p>Schon seit langer Zeit hebt sich die Kultur des italienischen Akkordeonbaus von den übrigen ab, sowohl in klanglicher als 
+               <br> in technischer Hinsicht. So ist der Standard, der bei italienischen Akkordeons herrscht, bestimmt durch die Qualität 
+               <br> der ausgewählten Komponenten, immer ein Garant für die vortreffliche Spielbarkeit und den Klang der Instrumente.
+            </p>
+            <img src="Cantonelli.jpg" alt="Bild 1">
+        </div>
+        <div class="content white">
+            <h2>Ballone Burini</h2>
+            <p>Ballone Burini ist nicht nur ein Name oder Warenzeichen. Es ist eine Geschichte, ein Projekt, bestimmt durch die Liebe zur <br>eigenen Arbeit und in das unermüdliche Streben nach Verbesserung. Jedes Ballone-Burini-Akkordeon ist ein <br>Wertgegenstand, ausschließlich aus geschickt und streng ausgewählten Materialien höchster <br>Qualität hergestellt, einer Qualität, die bei jeder freigesetzten Note erklingt.
+            </p>
+            <img src="Ballone-Burrini.jpg" alt="Bild 1">
+        </div>
+        <div class="content gray">
+            <h2>Brandoni</h2>
+            <p>Ein Brandoni-Akkordeon ist nicht nur ein einfaches Musikinstrument, sondern ein echtes Kunstwerk, in dem Tradition, <br>Innovation, Technologie und Schönheit eine wichtige Rolle spielen. Der einzigartige und packende Klang eines <br>Brandoni-Akkordeons ist das Ergebnis einer Reihe von Faktoren, einschließlich sorgfältiger Auswahl feinster Massivhölzer, <br>Verwendung von Stimmplatten hervorragender Qualität und strenger Endkontrolle.
+            </p>
+            <img src="Brandoni.jpg" alt="Bild 1">
+        </div>
+        <div class="content white">
+            <h2>Pigini</h2>
+            <p>PIGINI ist das Akkordeon der Stars und Solisten. Es erklingt an Musikhochschulen, Konservatorien und Bühnen weltweit, <br>mit der gesamten Bandbreite der Stilrichtungen. Unter Kennern gilt der Name PIGINI als international unerreichter <br>Qualitätsbegriff des modernsten Akkordeonbaus.
+            </p>
+            <img src="Pigini.jpg" alt="Bild 1">
+        </div>
+        <div class="content gray">
+            <h2>Borsini</h2>
+            <p>Borsini-Akkordeons zeichnen sich durch höchste Qualität in Verarbeitung und Klang aus. Schon seit 1922 baut Borsini <br>hervorragende Instrumente und gehört zu den führenden italienischen Herstellern. Ständige Innovationen im Gehäuse- <br>und Stimmstockbau sowie die Erfahrung von über acht Jahrzehnten ermöglichen es Borsini, die wohl heute kompaktesten <br>und leichtesten Akkordeons auf dem Markt zu fertigen.
+            </p>
+            <img src="Borsini.jpg" alt="Bild 1">
+        </div>
+        <div class="content white">
+            <h2>Hohner</h2>
+            <p>HOHNER – die Marke für Profis und Amateure. 150 Jahre Hohner Musikinstrumente: 5 Generationen von Mitarbeitern, <br>die sich der Herstellung von Musikinstrumenten auf höchstem Niveau verschrieben haben.
+            </p>
+            <img src="hohner.jpg" alt="Bild 1">
+        </div>
+        <div class="content gray">
+            <h2>Bugari</h2>
+            <p>BUGARI ist eine der führenden Marken für hochwertige Akkordeons weltweit, speziell auf dem chinesischen Markt. <br>Es ist ein Synonym für italienische Handwerkstradition und modernste technische Lösungen.
+            </p>
+            <img src="Bugari.jpg" alt="Bild 1">
+        </div>
+    </section>
+
+    <section id="aufbau" class="block large">
+        <div class="content gray">
+            <h2>Gehäuse und Balg</h2>
+            <p>Das Gehäuse des Akkordeons bildet den Rahmen, der alle anderen Teile des Instruments zusammenhält. Der Balg, der sich <br>zwischen den beiden Gehäusehälften befindet, ist eine flexible, faltbare Membran, die Luft speichert und freisetzt, wenn sie <br>zusammengedrückt oder auseinandergezogen wird. Der Balg ist entscheidend für die Tonerzeugung im Akkordeon.
+            </p>
+            <img src="Balg.png" alt="Bild 1">
+        </div>
+        <div class="content white">
+            <h2>Tasten und Knöpfe</h2>
+            <p>Auf der Vorderseite des Akkordeons befinden sich die Tasten oder Tastenbretter, die je nach Art des Akkordeons <br>unterschiedlich angeordnet sind. Diese Tasten werden gedrückt, um die Luft durch die Stimmzungen strömen zu lassen und <br>Töne zu erzeugen. 
+                Bei Knopfakkordeons befinden sich die Tasten auf der Vorderseite, während sie bei Pianoakkordeons in <br>Form von Klaviertasten angeordnet sind.
+                </p>
+            <img src="Tasten.png" alt="Bild 1">
+        </div>
+        <div class="content gray">
+            <h2>Stimmzungen und Tonstöcke
+            </h2>
+            <p>Im Inneren des Akkordeons befinden sich die Stimmzungen, die aus Metall bestehen und in einer Reihe von Tonstöcken <br>montiert sind. 
+                Beim Drücken einer Taste oder eines Knopfes öffnet sich ein Luftkanal über einer oder mehreren <br>Stimmzungen, und die Luftströmung bringt die Stimmzunge zum Schwingen, wodurch der Ton erzeugt wird.
+                </p>
+            <img src="Stimmstock.jpg" alt="Bild 1">
+        </div>
+        <div class="content white">
+            <h2>Register und Registerknöpfe</h2>
+            <p>Die meisten Akkordeons verfügen über mehrere Register, die es dem Spieler ermöglichen, zwischen verschiedenen <br>Klangfarben und Klangcharakteristiken zu wählen. Diese Register werden mithilfe von Registerknöpfen ausgewählt, die sich <br>normalerweise auf der Vorderseite des Akkordeons befinden. Durch das Betätigen dieser Knöpfe werden bestimmte <br>Stimmzungen aktiviert oder deaktiviert, um den Klang zu verändern.</p>
+            <img src="Register.png" alt="Bild 1">
+        </div>
+        <div class="content gray">
+            <h2>Bass-System</h2>
+            <p>Auf der linken Seite des Akkordeons befindet sich das Bass-System, das aus einer Reihe von Tasten oder Knöpfen besteht, <br>die Akkorde oder einzelne Basstöne erzeugen. Diese Bassmechanik ist in der Regel mit einem eigenen Balg ausgestattet <br>und ermöglicht es dem Spieler, gleichzeitig Melodie und Begleitung zu spielen.
+            </p>
+            <img src="Bass.png" alt="Bild 1">
+        </div>
+    </section>
+
+    <section id="traditionsmusik" class="block large">
+        <div class="content gray">
+            <h2>Einführung</h2>
+            <p>Der Ländler ist eine traditionelle Schweizer Volksmusik, die seit Jahrhunderten in den ländlichen Regionen <br>der Schweiz gepflegt wird. Diese Musik ist eng mit den Bräuchen und Traditionen der Schweizer Kultur <br>verbunden und hat eine bedeutende Rolle in der Geschichte des Landes gespielt. Die lebendige <br>Musikform, oft von Generation zu Generation weitergegeben, ist nicht nur ein Ausdruck kultureller Identität, <br>sondern auch ein Symbol der Gemeinschaft und des Zusammenhalts in den ländlichen Gebieten der <br>Schweiz. Die charakteristischen Klänge des Ländlers bringen das Erbe und die Lebensfreude der <br>Schweizer Bevölkerung zum Ausdruck und sind ein fester Bestandteil zahlreicher festlicher Anlässe.</p>
+            <!--<img src="Bass.png" alt="Bild 1">-->
+        </div>
+        <div class="content white">
+            <h2>Geschichte</h2>
+            <p>Der Ursprung des Ländlers liegt tief in den ländlichen Gebieten der Schweiz, wo er als eine Form der <br>Volksmusik bei festlichen Anlässen wie Hochzeiten und Dorffesten gespielt wurde. Ursprünglich wurde die <br>Musik von einfachen Bauern und Handwerkern geschaffen und gespielt, die ihre Lebensfreude und <br>Verbundenheit mit der Natur durch Musik ausdrückten. Im Laufe der Zeit hat sich der Ländler <br>weiterentwickelt und verschiedene Einflüsse aufgenommen, die ihn zu einem wichtigen kulturellen Erbe der <br>Schweiz gemacht haben. Der Ländler wurde im 19. und 20. Jahrhundert zunehmend auch in städtischen <br>Gebieten populär, wobei sich der Stil weiter diversifizierte. Heute ist der Ländler nicht nur ein Symbol <br>der Tradition, sondern auch ein lebendiger Teil des modernen kulturellen Lebens in der Schweiz.</p>
+            <!--<img src="Bass.png" alt="Bild 1">-->
+        </div>   
+        <div class="content gray">
+            <h2>Musik</h2>
+            <p>Der Ländler zeichnet sich durch charakteristische Rhythmen und Melodien aus, die oft von Instrumenten <br>wie Akkordeon, Geige und Klarinette gespielt werden. Diese Instrumente erzeugen eine fröhliche und <br>lebhafte Atmosphäre, die die Lebensfreude und die enge Verbundenheit der Menschen mit der Natur <br>widerspiegelt. Die Musik des Ländlers ist meist im 3/4-Takt gehalten und enthält oft improvisatorische <br>Elemente, die den Musikern Raum für kreative Ausdrucksformen lassen. Besonders bekannt sind die <br>Melodien des Ländlers für ihre eingängigen und wiederkehrenden Themen, die leicht zu erkennen und <br>mitzusingen sind. In der Schweiz gibt es zahlreiche Ländlerkapellen und Musikvereine, die diese Tradition <br>pflegen und weiterführen. Durch regelmäßige Auftritte bei Volksfesten, in Konzertsälen und auf öffentlichen <br>Plätzen bleibt der Ländler lebendig und präsent im kulturellen Bewusstsein der Schweiz.</p>
+            <!--<img src="Bass.png" alt="Bild 1">-->
+        </div>
+    </section>
+
+
+    <section id="kontakt">
+        <a href="mailto:alessio.huber@hotmail.com">
+            <img src="emaillogo.png" alt="Bild 1">
+        </a>
+    </section>
+    
+    
+</main>
+</body>
+</html>
